@@ -34,9 +34,9 @@ function App() {
           <Route path="/Concerts" component={Concerts} />
           {/* <Route path="/Sports" component={Sports} />
           <Route path="/Arts&theater" component={ArtsThearter} />
-          <Route path="/Family" component={Family} />
+          <Route path="/Family" component={Family} /> */}
           <Route path="/buy/:id" component={BuyTickets} />
-          <Route path="/results/" component={SearchContent} /> */}
+          <Route path="/results/" component={SearchContent} />
         </Context.Provider>
       </BrowserRouter>
     </div>

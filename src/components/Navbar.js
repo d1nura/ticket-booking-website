@@ -9,8 +9,11 @@ import Context from "./Context";
 import SearchResults from "./SearchResults";
 import ToTop from "./ToTop";
 import menu from "../logo/menu.svg";
+import menuB from "../logo/menuB.svg";
 import searcher from "../logo/searcher.svg";
+import searcherB from "../logo/searcherB.svg";
 import closeBtn from "../logo/cancel2.svg";
+import closeBtnB from "../logo/cancel3.svg";
 
 function Navbar() {
   const context = useContext(Context);
@@ -27,6 +30,7 @@ function Navbar() {
   const [homeNav, setHomeNav] = useState(false);
   const [change, setChange] = useState(false);
   const [full, setFull] = useState(false);
+  const [changeB, setChangeB] = useState(true);
 
   useEffect(() => {
     if (window.location.pathname !== "") {
@@ -94,8 +98,14 @@ function Navbar() {
   };
   const changeMenu = () => {
     change ? setChange(false) : setChange(true);
-    console.log(change);
+    setChangeB(true);
   };
+  const changeMenuB = () => {
+    change ? setChange(false) : setChange(true);
+    // changeB ? setChangeB(false) : setChangeB(true);
+    setChangeB(false);
+  };
+
   const changeSearchFull = () => {
     full ? setFull(false) : setFull(true);
   };
@@ -146,6 +156,14 @@ function Navbar() {
               onClick={changeSearchFull}
               id="searchIcon"
               alt="search"
+              style={!nav ? { display: "none" } : {}}
+            />
+            <img
+              src={searcherB}
+              onClick={changeSearchFull}
+              id="searchIcon"
+              alt="search"
+              style={navClr ? { display: "block" } : { display: "none" }}
             />
             <img
               src={menu}
@@ -155,11 +173,27 @@ function Navbar() {
               style={change ? { display: "none" } : {}}
             />
             <img
+              src={menuB}
+              onClick={changeMenuB}
+              id="menuIcon"
+              alt="menu"
+              style={
+                navClr && changeB ? { display: "block" } : { display: "none" }
+              }
+            />
+            <img
               src={closeBtn}
               onClick={changeMenu}
               id="closeIcon"
               alt="close"
               style={change ? { display: "block" } : {}}
+            />
+            <img
+              src={closeBtnB}
+              onClick={changeMenu}
+              id="closeIcon"
+              alt="close"
+              style={navClr && !changeB ? { display: "block" } : {}}
             />
           </div>
         </div>

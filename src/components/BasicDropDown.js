@@ -13,7 +13,7 @@ const BasicDropDown = props => {
   const [more, setMore] = useState(false);
   const [showMoreLineUp, setShowMoreLineUp] = useState(false);
   const context = useContext(Context);
-  let x = props.item._embedded.attractions;
+  let x = props.item._embedded;
 
   useEffect(() => {
     if (x) {
@@ -78,11 +78,13 @@ const BasicDropDown = props => {
               {props.item.name}
             </h3>
             <p style={show ? { opacity: 0 } : {}}>
-              {props.item._embedded.venues[0].name}-{" "}
-              {props.item._embedded.venues[0].city.name},&nbsp;
-              {props.item._embedded.venues[0].state
-                ? props.item._embedded.venues[0].state.stateCode
-                : props.item._embedded.venues[0].country.countryCode}
+              {x ? x.venues[0].name : ""}- {x ? x.venues[0].city.name : ""}
+              ,&nbsp;
+              {x
+                ? x.venues[0].state
+                  ? x.venues[0].state.stateCode
+                  : x.venues[0].country.countryCode
+                : ""}
             </p>
           </div>
         </div>
@@ -129,7 +131,7 @@ const BasicDropDown = props => {
           >
             <img src={cancel} alt="close" onClick={hideMoreLineup} />
             <h1>Lineup</h1>
-            {props.item._embedded.attractions
+            {x
               ? props.item._embedded.attractions
                   // .slice(4, props.item._embedded.attractions.length)
                   .map((item, index) => {
@@ -147,12 +149,14 @@ const BasicDropDown = props => {
           <div id="venueFlex">
             <img src={location} alt="location" />
             <div>
-              <p>{props.item._embedded.venues[0].name}</p>
+              <p>{x ? props.item._embedded.venues[0].name : ""}</p>
               <p>
-                {props.item._embedded.venues[0].city.name},&nbsp;
-                {props.item._embedded.venues[0].state
-                  ? props.item._embedded.venues[0].state.stateCode
-                  : props.item._embedded.venues[0].country.countryCode}
+                {x ? props.item._embedded.venues[0].city.name : ""},&nbsp;
+                {x
+                  ? props.item._embedded.venues[0].state
+                    ? props.item._embedded.venues[0].state.stateCode
+                    : props.item._embedded.venues[0].country.countryCode
+                  : ""}
               </p>
             </div>
           </div>

@@ -26,8 +26,8 @@ function Concerts() {
     "Rock",
     "World"
   ];
+  return <p style={{ height: 200 + "vh" }}>sd</p>;
   // return <BasicPage optionsArr={concertsArr} pageName="Concert" />;
-  return <p>sdf</p>;
 }
 
 export default Concerts;

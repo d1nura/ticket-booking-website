@@ -32,10 +32,6 @@ function BuyTickets({ match }) {
     return (
       <div className="buyTickets">
         <header>
-          {/* <div
-            id="headerPic"
-            style={{ backgroundImage: `url('${data.images[0].url}')` }}
-          /> */}
           <img alt="pic" src={data.images[0].url} />
           <div id="headerContent">
             <h2>{data.name}</h2>
@@ -82,7 +78,7 @@ function BuyTickets({ match }) {
                   <p>
                     {data.priceRanges
                       ? (data.priceRanges[0].min * itemCount).toFixed(1)
-                      : "0.00"}
+                      : (15).toFixed(2) * itemCount + "USD"}
                     {data.priceRanges ? data.priceRanges[0].currency : ""}
                   </p>
                 </div>
