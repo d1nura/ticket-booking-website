@@ -1,0 +1,45 @@
+.gridItems {
+  padding: 2vh 1.5vw 5vh 1.5vw;
+}
+
+#gridNameTag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5vh 0.5vw 2.5vh 0.2vw;
+  a {
+    color: blue;
+    font-size: 1.3vw;
+  }
+  h2 {
+    font-size: 1.7vw;
+  }
+}
+
+#sixGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  grid-gap: 1.2vw;
+  p {
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    color: #919191;
+    font-weight: 550;
+    font-size: 1.1vw;
+    padding: 0 0.8vw 0 0.8vw;
+  }
+}
+
+#cItem {
+  box-shadow: 3px 6px 3px -4px rgba(191, 191, 191, 1);
+}
+
+#gridPic {
+  border-radius: 0.2rem 0.2rem 0 0;
+  height: 35vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -1,0 +1,11 @@
+@mixin mobile($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin tab($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

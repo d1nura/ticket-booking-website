@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.scss";
+import { BrowserRouter, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Concerts from "./components/Concerts";
+import Sports from "./components/Sports";
+import ArtsThearter from "./components/Arts&Theater";
+import Family from "./components/Family";
+import BuyTickets from "./components/BuyTickets";
+import Context from "./components/Context";
+import SearchContent from "./components/SearchContent";
+import ToTop from "./components/ToTop";
 
 function App() {
+  const [nav, setNav] = useState(false);
+  const [showRes, setShowRes] = useState(false);
+  const [searchBarVal, setSearchBarVal] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <BrowserRouter>
+        <Context.Provider
+          value={{
+            display: nav,
+            setDisplay: setNav,
+            res: showRes,
+            setRes: setShowRes,
+            searchBarVal: searchBarVal,
+            setSearchBarVal: setSearchBarVal
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <Navbar />
+          {/* <Route path="/" exact component={Home} /> */}
+          <Route path="/Concerts" component={Concerts} />
+          {/* <Route path="/Sports" component={Sports} />
+          <Route path="/Arts&theater" component={ArtsThearter} />
+          <Route path="/Family" component={Family} />
+          <Route path="/buy/:id" component={BuyTickets} />
+          <Route path="/results/" component={SearchContent} /> */}
+        </Context.Provider>
+      </BrowserRouter>
     </div>
   );
 }

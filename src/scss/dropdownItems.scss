@@ -1,0 +1,249 @@
+.mainHolder {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-bottom: 0.5px solid rgb(228, 228, 228);
+  padding: 0.5vh 1vw 0.5vh 0;
+  border-radius: 0.2rem;
+  transition: 0.5s;
+}
+
+#showBoxShadow {
+  box-shadow: 1px 1px 0.5rem 2px rgb(233, 233, 233);
+}
+
+#dropDown {
+  height: 11.5vh;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  cursor: pointer;
+}
+
+#mainDetails {
+  display: grid;
+  grid-template-columns: 5% 12% 75%;
+  // align-items: center;
+  transition: 0.2s;
+
+  #downIcon {
+    padding-left: 0.5vw;
+    align-self: center;
+    img {
+      width: 1.2vw;
+      transition: 0.2s;
+    }
+  }
+  #venueDate {
+    padding-left: 0.5vw;
+    padding: 2vh 0.5vw 0.5vh 1vw;
+    //border: 1px solid black;
+    #mainDate {
+      color: #904eba;
+      font-weight: bold;
+      font-size: 1.25vw;
+      margin-bottom: 0.5vh;
+      word-spacing: 0.4vw;
+    }
+    #day-time {
+      display: flex;
+      color: rgb(109, 108, 108);
+      p,
+      span {
+        margin-right: 0.4vw;
+        font-size: 1.1vw;
+      }
+      span {
+        font-weight: bolder;
+      }
+    }
+  }
+  #venueDetails {
+    // border: 1px solid red;
+    padding: 2vh 0.5vw 0.5vh 1vw;
+    position: relative;
+    h3 {
+      position: relative;
+      font-size: 1.25vw;
+      margin-bottom: 0.5vh;
+      word-spacing: 0.2vw;
+      color: rgb(70, 70, 70);
+      letter-spacing: 1px;
+      transition: 0.5s;
+    }
+    p {
+      font-size: 1.1vw;
+      color: grey;
+      transition: 1s;
+    }
+  }
+
+  &:hover {
+    background: rgba(205, 205, 255, 0.555);
+  }
+}
+
+.rotateBtn {
+  transform: rotate(180deg);
+}
+
+.animateH3 {
+  animation-name: animateH3;
+  animation-duration: 1s;
+}
+.reverseH3 {
+  animation-name: reverseH3;
+  animation-duration: 1s;
+}
+
+@keyframes animateH3 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes reverseH3 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#seeTicBtn {
+  align-self: center;
+  justify-self: flex-end;
+  button {
+    background: #026cdf;
+    color: white;
+    border: none;
+    height: 6.2vh;
+    width: 8.5vw;
+    border-radius: 0.1rem;
+    font-weight: bold;
+    font-size: 1.1vw;
+    line-height: 6.5vh;
+    cursor: pointer;
+  }
+}
+.hiddenDetails {
+  height: 0vh;
+  overflow: hidden;
+  transition: 0.1s;
+  opacity: 0;
+  // padding: 0 0.5vw 0 0.5vw;
+  margin: 1vh 1.8vw 0.2vh 1vw;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  #lineup,
+  #venueInfo {
+    padding: 0.5vw 0.5vw 0.5vw 3vw;
+    h5 {
+      color: rgb(0, 0, 0);
+      font-size: 1.2vw;
+      margin-top: 3vh;
+    }
+  }
+  #lineup {
+    // p {
+    //   font-size: 1.2vw;
+    //   margin: 4vh 0 4vh 0;
+    //   color: rgb(84, 84, 236);
+    //   border: 1px solid red;
+    //   //cursor: pointer;
+    //   z-index: 100;
+    // }
+    p {
+      font-size: 1.2vw;
+      margin: 4vh 0 4vh 0;
+      // color: rgb(84, 84, 236);
+      color: rgb(58, 83, 228);
+      //border: 1px solid red;
+      //cursor: pointer;
+      // z-index: 10000;s
+      &:hover {
+        color: rgb(207, 39, 39);
+      }
+    }
+  }
+  #venueInfo {
+    h5 {
+      margin-bottom: 4vh;
+    }
+    #venueFlex {
+      display: flex;
+      p {
+        font-size: 1.2vw;
+        margin-bottom: 1vh;
+        color: grey;
+      }
+    }
+    img {
+      width: 1.4vw;
+      height: 1.4vw;
+      //border: 1px solid red;
+      margin-right: 1vw;
+    }
+  }
+}
+
+#addHeight {
+  height: auto;
+  border-top: 0.5px solid rgb(228, 228, 228);
+  opacity: 1;
+  margin: 1vh 1.8vw 4vh 1vw;
+  #lineup,
+  #venueInfo {
+    animation-name: animateH3;
+    animation-duration: 0.8s;
+  }
+}
+
+#more {
+  display: none;
+  cursor: pointer;
+}
+#showMore {
+  display: block;
+  cursor: pointer;
+}
+
+.moreLineup {
+  display: none;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgb(0, 0, 0);
+  width: 100%;
+  height: 100vh;
+  opacity: 0.3;
+}
+
+#moreContent {
+  display: none;
+  z-index: 200;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.2rem;
+  position: fixed;
+  background: white;
+  width: 30vw;
+  max-height: 62vh;
+  overflow-y: scroll;
+  padding: 8vh 1vw 2vw 2.5vw;
+  h1 {
+    font-size: 2vw;
+  }
+  img {
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    width: 1.5vw;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,175 @@
+.buyTickets {
+  position: fixed;
+
+  width: 100%;
+  height: 100vh;
+
+  h2 {
+    //margin-bottom: 2.2vh;
+    font-size: 1.5vw;
+  }
+  header {
+    padding: 0vh 1.5vw 0vh 1.5vw;
+    background: rgb(15, 89, 198);
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    // grid-template-columns: 25% 75%;
+    // grid-template-rows: 20vh;
+    align-items: center;
+    img {
+      width: 10vw;
+      height: 13vh;
+      margin-right: 2vw;
+    }
+  }
+}
+
+#headerContent {
+  height: 13vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+#ticDates {
+  display: flex;
+  span {
+    margin: 0 0.5vw 0 0.5vw;
+  }
+  p {
+    margin-bottom: 0.5vh;
+    font-size: 1.1vw;
+  }
+}
+
+#ticContent {
+  //border: 1px solid red;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 80vh;
+  overflow: hidden;
+}
+
+#seatMap {
+  //   /border: 1px solid green;
+  align-self: center;
+  justify-self: center;
+
+  img {
+    width: 40vw;
+  }
+}
+
+#price {
+  position: relative;
+  background: rgb(245, 245, 245);
+}
+
+#notFound {
+  background: rgb(223, 246, 255);
+  padding: 1vw;
+  display: flex;
+  align-items: center;
+  color: rgb(92, 92, 92);
+  box-shadow: 1px 1px 5px -2px rgb(175, 175, 175);
+  border-radius: 0.2rem;
+  img {
+    width: 4vw;
+    margin-right: 1.5vw;
+  }
+}
+
+#priceContent {
+  width: 100%;
+  height: 100%;
+  //background: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4vh 1.5vw 2vh 1.5vw;
+}
+
+#centerPrice {
+  //border: 1px solid red;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  #ticPic {
+    width: 4vw;
+    margin-bottom: 4vh;
+  }
+}
+
+#priceTag {
+  text-align: center;
+  h3 {
+    font-size: 4vw;
+    margin-bottom: 1vh;
+    // font-weight: 100
+  }
+  p {
+    font-size: 2.5vw;
+    font-weight: 200;
+  }
+  margin-bottom: 5vh;
+}
+
+#priceSelector {
+  display: flex;
+  justify-content: center;
+  button {
+    width: 3.5vw;
+    height: 3.5vw;
+    border-radius: 4rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #026cdf;
+    outline: none;
+    cursor: pointer;
+    img {
+      width: 1.7vw;
+    }
+    &:nth-child(1) {
+      background: rgb(143, 143, 143);
+    }
+  }
+
+  p {
+    //border: 1px solid red;
+    width: 3.5vw;
+    line-height: 3.5vw;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+  }
+}
+
+#getTickets {
+  height: 12.5vh;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5vw 0 1.5vw;
+  button {
+    width: 10.5vw;
+    height: 6.5vh;
+    background: #1bab1e;
+    border: none;
+    color: white;
+    font-size: 1.5vw;
+    font-weight: bold;
+    border-radius: 0.2rem;
+    cursor: pointer;
+  }
+  p {
+    font-size: 1.4vw;
+  }
+}
