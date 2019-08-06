@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from "react";
 import ConcertItems from "./HomeComponent/ConcertItems";
-import SportsItem from "./HomeComponent/SportsItem";
-import ArtsItem from "./HomeComponent/ArtsItem";
-import FamilyItem from "./HomeComponent/FamilyItem";
+// import SportsItem from "./HomeComponent/SportsItem";
+// import ArtsItem from "./HomeComponent/ArtsItem";
+// import FamilyItem from "./HomeComponent/FamilyItem";
 import "../scss/home.scss";
 import Context from "./Context";
 import useHttp from "../hooks/http";
-import GridContent from "../components/HomeComponent/GridContent";
+// import GridContent from "../components/HomeComponent/GridContent";
 import Loading from "./Loading";
 
 function Home() {
@@ -19,9 +19,9 @@ function Home() {
     return (
       <div className="Home">
         <ConcertItems />
-        <SportsItem />
+        {/* <SportsItem />
         <ArtsItem />
-        <FamilyItem />
+        <FamilyItem /> */}
         {/* {data._embedded.events.map((item, index) => {
           return <p>{item.name}</p>;
         })}

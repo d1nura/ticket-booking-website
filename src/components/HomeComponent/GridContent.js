@@ -9,10 +9,11 @@ function GridContent(props) {
   const setNavbar = () => {
     context.setDisplay(true);
   };
+  console.log(props);
   return (
     <div className="gridItems">
       <div id="sixGrid">
-        {props.data._embedded.events.map((item, index) => {
+        {props.data.map((item, index) => {
           return (
             <div key={index} id="cItem">
               <Link to={`/buy/${item.id}`} onClick={setNavbar}>

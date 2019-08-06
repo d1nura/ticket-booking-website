@@ -108,7 +108,11 @@ const BasicDropDown = props => {
               props.item._embedded.attractions.length <= 4
               ? props.item._embedded.attractions.map((item, index) => {
                   return (
-                    <Link to="/results" key={index} onClick={setSearchName}>
+                    <Link
+                      to={`/results/${item.name}`}
+                      key={index}
+                      onClick={setSearchName}
+                    >
                       <p>{item.name}</p>
                     </Link>
                   );
@@ -118,7 +122,11 @@ const BasicDropDown = props => {
                   .slice(0, 4)
                   .map((item, index) => {
                     return (
-                      <Link to="/results" key={index} onClick={setSearchName}>
+                      <Link
+                        to={`/results/${item.name}`}
+                        key={index}
+                        onClick={setSearchName}
+                      >
                         <p>{item.name}</p>
                       </Link>
                     );
@@ -149,7 +157,11 @@ const BasicDropDown = props => {
                   // .slice(4, props.item._embedded.attractions.length)
                   .map((item, index) => {
                     return (
-                      <Link to="/results" key={index} onClick={setSearchName}>
+                      <Link
+                        to={`/results/${item.name}`}
+                        key={index}
+                        onClick={setSearchName}
+                      >
                         <p>{item.name}</p>
                       </Link>
                     );

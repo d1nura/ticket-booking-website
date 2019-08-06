@@ -2,19 +2,24 @@ import React from "react";
 import useHttp from "../../hooks/http";
 import "../../scss/concertItems.scss";
 import GridContent from "./GridContent";
+import Loading from "../Loading";
 
 function ConcertItems() {
-  const [data, loading] = useHttp("events.json?keyword=concerts&", 6, 1);
-
+  const [data, loading] = useHttp("events.json&source=ticketmaster&locale=*?");
   const results = () => {
-    return <GridContent name="Concerts" data={data} />;
+    return (
+      <React.Fragment>
+        <GridContent name="Concerts" data={data._embedded.events} />
+        {/* <GridContent name="Concerts" data={data._embedded.venues} /> */}
+      </React.Fragment>
+    );
   };
 
   if (!loading && data) {
-    console.log(data);
+    console.log(data._embedded);
     return results();
   } else {
-    return <p>loading...</p>;
+    return <Loading />;
   }
 }
 export default ConcertItems;
