@@ -5,15 +5,16 @@ import BasicDropDown from "./BasicDropDown";
 import "../scss/searchContent.scss";
 import Loading from "./Loading";
 
-function SearchContent() {
+function SearchContent({ match }) {
   const context = useContext(Context);
-  const [data, loading] = useHttp(`events?keyword=${context.searchBarVal}&`);
+  const [data, loading] = useHttp(`events?keyword=${match.params.name}&`);
   useEffect(() => {
     window.onpopstate = () => {
       context.setRes(false);
+      console.log(context.res);
     };
-    console.log(122);
-  }, []);
+    console.log(context.searchBarVal);
+  }, [context]);
   const results = () => {
     return (
       <div className="searchContent">

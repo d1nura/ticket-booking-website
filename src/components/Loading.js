@@ -1,5 +1,5 @@
 import React from "react";
-import loading from "../logo/load.svg";
+import loading from "../logo/rolling.svg";
 import "../scss/loading.scss";
 
 function Loading() {

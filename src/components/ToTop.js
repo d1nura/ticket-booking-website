@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../scss/toTop.scss";
 import arrow from "../logo/downarrow1.svg";
 

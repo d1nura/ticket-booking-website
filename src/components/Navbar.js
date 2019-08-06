@@ -15,7 +15,7 @@ import searcherB from "../logo/searcherB.svg";
 import closeBtn from "../logo/cancel2.svg";
 import closeBtnB from "../logo/cancel3.svg";
 
-function Navbar() {
+function Navbar({ match }) {
   const context = useContext(Context);
 
   const [nav, setNav] = useState(false);
@@ -23,7 +23,7 @@ function Navbar() {
   const [navClr, setNavClr] = useState(false);
   const [navHide, setNavHide] = useState(false);
   const [searchVal, setSearchVal] = useState("");
-  const [removeResults, setRemvoeResults] = useState(false);
+  const [removeResults, setRemoveResults] = useState(false);
   const [showScreen, setShowScreen] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [navTitle, setNavTitle] = useState(false);
@@ -42,24 +42,30 @@ function Navbar() {
     }
     if (window.location.pathname === "/") {
       setNav(false);
-    }
-    if (window.location.pathname === "/results") {
-      setShowResults(false);
-      setNavTitle(true);
-    }
-    if (window.location.pathname !== "/results") {
       setNavTitle(false);
     }
-    // setShowResults(false);
+
+    if (match.params[0].split("/")[1] === "results") {
+      setNavTitle(true);
+    } else {
+      setNavTitle(false);
+    }
+
     setNavHide(context.display);
     document.onclick = e => {
       if (e.target.id === "searchP" || e.target.id === "searchM") {
-        setRemvoeResults(false);
+        setRemoveResults(false);
       } else {
-        setRemvoeResults(true);
+        setRemoveResults(true);
       }
     };
-  }, [context.display, showResults, name, navTitle, context.searchBarVal]);
+  }, [
+    context.display,
+    showResults,
+    navTitle,
+    context.searchBarVal,
+    match.params
+  ]);
 
   window.onscroll = () => {
     if (window.pageYOffset >= 10) {
@@ -73,21 +79,25 @@ function Navbar() {
 
   const changeHome = () => {
     setNav(false);
+    setChange(false);
   };
   const changeSearch = e => {
     setNav(true);
     console.log(showResults);
     setName(e.target.innerText);
+    setChange(false);
   };
 
   const searchValChange = e => {
-    setSearchVal(e.target.value);
+    setTimeout(setSearchVal(e.target.value), 1000);
+
     if (e.target.value !== "" && e.key === "Enter") {
       setShowResults(true);
       setNavTitle(true);
+      setRemoveResults(true);
+      setShowScreen(false);
       context.setSearchBarVal(searchVal);
       e.target.value = "";
-      console.log(context.searchBarVal);
     }
   };
   const switchScreen = () => {
@@ -113,7 +123,11 @@ function Navbar() {
   return (
     <React.Fragment>
       <ToTop />
-      {showResults ? <Redirect to="/results" push /> : ""}
+      {showResults ? (
+        <Redirect to={`/results/${context.searchBarVal}`} push />
+      ) : (
+        ""
+      )}
       <div
         id="screen"
         onClick={removeScreen}
@@ -224,12 +238,16 @@ function Navbar() {
             placeholder="Find millions of live experience"
           />
 
-          <SearchResults
-            name={searchVal}
-            nav={nav}
-            homeNav={homeNav}
-            removeResults={removeResults}
-          />
+          {searchVal !== "" ? (
+            <SearchResults
+              name={searchVal}
+              nav={nav}
+              homeNav={homeNav}
+              removeResults={removeResults}
+            />
+          ) : (
+            ""
+          )}
           <p
             id="cancelP"
             onClick={changeSearchFull}
@@ -239,7 +257,10 @@ function Navbar() {
           </p>
         </div>
         <div className="navDetails" style={nav ? { display: "block" } : {}}>
-          <div id="navDetailContent">
+          <div
+            id="navDetailContent"
+            style={navTitle ? { display: "none" } : {}}
+          >
             <p>
               <Link to="/" onClick={changeHome}>
                 Home
@@ -257,7 +278,7 @@ function Navbar() {
             style={navTitle ? { display: "block" } : {}}
           >
             <h1>
-              Search results for <b>"{context.searchBarVal}"</b>
+              Search results for <b>"{match.params[0].split("/")[2]}"</b>
             </h1>
           </div>
         </div>
