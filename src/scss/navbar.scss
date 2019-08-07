@@ -169,17 +169,20 @@ $inputClr: #3d81d6;
   background: rgb(255, 255, 255);
   transition: 0.5s;
   p {
-    //border-bottom: 1px solid rgb(0, 0, 0);
     //margin: 0vh 1.5vw 0vh 1.5vw;
+    border-bottom: 1px solid rgb(236, 242, 255);
     padding: 2.5vh 0.5vw 2.5vh 1.5vw;
     font-size: 1.2vw;
+    font-weight: bold;
+    letter-spacing: 1px;
+    word-spacing: 2px;
     &:hover {
       background: rgb(237, 248, 255);
       cursor: pointer;
     }
   }
   a {
-    color: rgb(71, 59, 245);
+    color: #157ceb;
   }
 }
 
@@ -194,6 +197,7 @@ $inputClr: #3d81d6;
   p {
     padding: 2vh 1vw 2vh 1vw;
     font-size: 1.1vw;
+    border-bottom: 1px solid rgb(236, 242, 255);
 
     &:hover {
       background: rgb(237, 248, 255);

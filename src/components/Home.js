@@ -10,11 +10,12 @@ import useHttp from "../hooks/http";
 import Loading from "./Loading";
 
 function Home() {
-  const [data, loading] = useHttp("events.json?", 20, 1);
+  // const [data, loading] = useHttp("events.json?", 20, 1);
   const context = useContext(Context);
-  useEffect(() => {
-    context.path = window.location.pathname;
-  });
+  // useEffect(() => {
+  //   context.path = window.location.pathname;
+  //   consoel
+  // });
   const results = () => {
     return (
       <div className="Home">
@@ -29,12 +30,13 @@ function Home() {
       </div>
     );
   };
-  if (data && !loading) {
-    console.log(data);
-    return results();
-  } else {
-    return <Loading />;
-  }
+  return results();
+  // if (data && !loading) {
+  //   console.log(data);
+  //   return results();
+  // } else {
+  //   return <Loading />;
+  // }
 }
 
 export default Home;

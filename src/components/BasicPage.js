@@ -20,7 +20,7 @@ function BasicPage(props) {
     <div className="basicComponent">
       <h2>All {name ? name : props.pageName} Events</h2>
       <select onChange={handleChange}>
-        <option value={props.pageName} selected>
+        <option defaultValue={props.pageName}>
           All {props.pageName} Events
         </option>
         {props.optionsArr.map((item, index) => {

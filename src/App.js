@@ -16,6 +16,7 @@ function App() {
   const [nav, setNav] = useState(false);
   const [showRes, setShowRes] = useState(false);
   const [searchBarVal, setSearchBarVal] = useState("");
+  const [loading, setLoading] = useState(false);
   return (
     <div className="App">
       <BrowserRouter>
@@ -26,7 +27,9 @@ function App() {
             res: showRes,
             setRes: setShowRes,
             searchBarVal: searchBarVal,
-            setSearchBarVal: setSearchBarVal
+            setSearchBarVal: setSearchBarVal,
+            loading: loading,
+            setLoading: setLoading
           }}
         >
           <Route path="*" component={Navbar} />

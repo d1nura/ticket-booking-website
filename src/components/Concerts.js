@@ -26,6 +26,7 @@ function Concerts() {
     "Rock",
     "World"
   ];
+
   return <BasicPage optionsArr={concertsArr} pageName="Concert" />;
 }
 

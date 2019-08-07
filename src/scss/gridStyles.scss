@@ -1,3 +1,5 @@
+@import "responsive";
+
 .gridItems {
   padding: 2vh 1.5vw 5vh 1.5vw;
 }
@@ -7,6 +9,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 2.5vh 0.5vw 2.5vh 0.2vw;
+
   a {
     color: blue;
     font-size: 1.3vw;
@@ -17,37 +20,89 @@
 }
 
 #sixGrid {
+  // margin-top: 5vh;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-rows: auto;
   grid-gap: 1.2vw;
 
-  p {
-    height: 12vh;
-    display: flex;
-    align-items: center;
-    color: #919191;
-    font-weight: 550;
-    font-size: 1.1vw;
-    padding: 0 0.8vw 0 0.8vw;
+  @include tab(768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mobile(500px) {
+    grid-template-columns: 100%;
   }
 }
 
 #cItem {
+  position: relative;
   box-shadow: 1px 5px 2px -5px rgb(110, 110, 110);
   border: 1px solid rgb(233, 233, 233);
-  //border: 1px solid red;
   border-radius: 0.2rem;
+  transition: 0.5s;
+  overflow: hidden;
+  p {
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    color: #026cdf;
+    font-weight: 550;
+    font-size: 1.1vw;
+    padding: 0 0.8vw 0 0.8vw;
+    @include tab(768px) {
+      font-size: 1.7vw;
+    }
+    @include mobile(500px) {
+      font-size: 4vw;
+    }
+  }
+
+  &:hover {
+    background: rgb(40, 90, 253);
+    box-shadow: none;
+    p {
+      color: white;
+    }
+    #gridPic {
+      border: none;
+      object-fit: cover;
+      transform: scale(1.1);
+    }
+  }
+  @include mobile(500px) {
+    a {
+      display: flex;
+      p {
+        color: #026cdf;
+        width: 70vw;
+        padding-left: 6vw;
+      }
+      &:hover {
+        #gridPic {
+          transform: scale(0);
+        }
+      }
+    }
+  }
 }
 
 #gridPic {
+  position: relative;
   border-radius: 0.2rem 0.2rem 0 0;
   height: 35vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  // border: 0.5px solid rgb(233, 233, 233);
   border-bottom: 0.5px solid rgb(233, 233, 233);
-  // border-right: 0.5px solid rgb(233, 233, 233);
-  // border-top: 0.5px solid rgb(233, 233, 233);
+  transform: scale(1);
+  object-fit: cover;
+  transition: 0.5s;
+  @include mobile(500px) {
+    width: 25vw;
+    height: 25vw;
+    background-size: contain;
+  }
 }

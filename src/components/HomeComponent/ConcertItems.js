@@ -5,7 +5,7 @@ import GridContent from "./GridContent";
 import Loading from "../Loading";
 
 function ConcertItems() {
-  const [data, loading] = useHttp("events.json&source=ticketmaster&locale=*?");
+  const [data, loading] = useHttp("events.json?");
   const results = () => {
     return (
       <React.Fragment>

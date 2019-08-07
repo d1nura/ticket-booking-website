@@ -5,6 +5,7 @@ const useHttp = (refer, size, page) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     console.log("rendering..");
+
     if (size || page) {
       setTimeout(() => {
         fetch(

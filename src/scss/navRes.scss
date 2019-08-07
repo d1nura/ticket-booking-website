@@ -165,3 +165,13 @@
     }
   }
 }
+
+@include mobile(340px) {
+  .searchBar {
+    input {
+      &::placeholder {
+        font-size: 4vw;
+      }
+    }
+  }
+}
