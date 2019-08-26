@@ -10,7 +10,6 @@ import Family from "./components/Family";
 import BuyTickets from "./components/BuyTickets";
 import Context from "./components/Context";
 import SearchContent from "./components/SearchContent";
-// import ToTop from "./components/ToTop";
 
 function App() {
   const [nav, setNav] = useState(false);

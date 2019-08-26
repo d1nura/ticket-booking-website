@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 function NavLinks() {
   const changeSearch = e => {
     setNav(true);
-    console.log(showResults);
     setName(e.target.innerText);
   };
   return (

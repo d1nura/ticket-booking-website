@@ -7,9 +7,7 @@ import load from "../logo/rolling1.svg";
 function SearchResults(props) {
   const [data, loading] = useHttp(`events?keyword=${props.name}&`);
 
-  useEffect(() => {
-    console.log(props.name);
-  }, [props.name]);
+  useEffect(() => {}, [props.name]);
 
   const context = useContext(Context);
   const setSearchName = e => {
@@ -45,7 +43,6 @@ function SearchResults(props) {
   if (data && !loading) {
     return results();
   } else {
-    console.log("loddddd.....");
     return (
       <img
         style={{ width: 4 + "vw", position: "absolute", right: 1 + "px" }}

@@ -23,7 +23,6 @@ function BasicComponent(props) {
   };
 
   if (data && !loading) {
-    console.log(data);
     return results();
   } else {
     return <Loading />;

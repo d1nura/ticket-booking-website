@@ -45,7 +45,6 @@ const BasicDropDown = props => {
   };
   const setSearchName = e => {
     context.setSearchBarVal(e.target.innerText);
-    console.log(e.target.innerText);
   };
 
   return (

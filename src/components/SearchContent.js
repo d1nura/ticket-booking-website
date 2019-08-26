@@ -11,9 +11,7 @@ function SearchContent({ match }) {
   useEffect(() => {
     window.onpopstate = () => {
       context.setRes(false);
-      console.log(context.res);
     };
-    console.log(context.searchBarVal);
   }, [context]);
   const results = () => {
     return (
@@ -29,7 +27,6 @@ function SearchContent({ match }) {
     );
   };
   if (data && !loading) {
-    console.log(data);
     return results();
   } else {
     return <Loading />;

@@ -83,7 +83,6 @@ function Navbar({ match }) {
   };
   const changeSearch = e => {
     setNav(true);
-    console.log(showResults);
     setName(e.target.innerText);
     setChange(false);
   };

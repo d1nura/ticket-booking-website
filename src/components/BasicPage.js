@@ -14,7 +14,6 @@ function BasicPage(props) {
   const handleChange = e => {
     setName(e.target.value);
     setArr([1]);
-    console.log(e.target.value);
   };
   return (
     <div className="basicComponent">
@@ -32,7 +31,7 @@ function BasicPage(props) {
         })}
       </select>
       {arr.map((item, index) => {
-        return <BasicComponent name={name} key={item} size="10" page={index} />;
+        return <BasicComponent name={name} key={item} size="20" page={index} />;
       })}
       <button id="loadMore" onClick={loadMore}>
         Load More

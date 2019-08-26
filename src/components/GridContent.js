@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
-import "../../scss/gridStyles.scss";
-import imgUrl from "../../hooks/imgUrl";
+import "../scss/gridStyles.scss";
+import imgUrl from "../hooks/imgUrl";
 import { Link } from "react-router-dom";
-import Context from "../Context";
+import Context from "../components/Context";
 
 function GridContent(props) {
   const context = useContext(Context);
   const setNavbar = () => {
     context.setDisplay(true);
   };
-  console.log(props);
   return (
     <div className="gridItems">
       <div id="sixGrid">
